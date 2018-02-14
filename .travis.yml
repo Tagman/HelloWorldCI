@@ -1,10 +1,14 @@
 language: cpp
 
+sudo: required
+
+services:
+  - docker
+
 compiler: gcc
 
+install:
+  - docker build -t HelloWorldImg .
 
 script:
-  - cd build
-  - cmake ..
-  - make
-  - ./HelloWorld
+  - docker run HelloWorldImg /home/dev/src/build/HelloWorld

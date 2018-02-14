@@ -8,10 +8,10 @@ services:
 compiler: gcc
 
 before_install:
-  - docker build -t build:latest -f docker/build/Dockerfile
+  - docker build -t build:latest ./docker/build/Dockerfile
 
 install:
-  - docker build -t helloworldimg:latest -f docker/main/Dockerfile
+  - docker build -t helloworldimg:latest .
 
 script:
   - docker run hellwWorldimg:latest /home/dev/src/build/HelloWorld

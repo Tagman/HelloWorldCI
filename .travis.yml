@@ -8,7 +8,7 @@ services:
 compiler: gcc
 
 before_install:
-  - docker build -t build:latest ./docker/build/Dockerfile
+  - docker build -t build:latest ./docker/build-env/
 
 install:
   - docker build -t helloworldimg:latest .

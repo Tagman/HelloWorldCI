@@ -19,8 +19,9 @@ script:
   helloworldimg:latest  /bin/bash -c  \
   'cd /home/dev/build/debug && \
   rm -rf * && \
-  rm -rf /home/dev/external/gtest/src/googletest-build/* && \
-  cmake ../.. && \
+  rm -rf /home/dev/external/gtest/src/ && \
+  rm -rf /home/dev/external/gtest/tmp/ && \
+  cmake -DCMAKE_BUILD_TYPE=Debug ../.. && \
   make googletest && \
   make HelloWorld && \
   make runDummyTest && \

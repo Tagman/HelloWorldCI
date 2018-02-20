@@ -81,5 +81,8 @@ build/*/*
 !build/release/.blank
 !build/debug/.blank
 
+external/gtest/src/googletest-build/*/*
+!external/gtest/src/googletest-build/.blank
+
 
 

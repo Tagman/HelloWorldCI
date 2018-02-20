@@ -15,6 +15,13 @@ install:
 
 script:
 - |
-  docker run --name hellocont -v "$(pwd)":/home/dev/ \
-  helloworldimg:latest \
-  'cd ./build/debug && cmake ../.. && make HelloWorld && make runDummyTest && ./runDummyTest'
+  docker run --rm --name hellocont -v "$(pwd)":/home/dev/ \
+  helloworldimg:latest  /bin/bash -c  \
+  'cd /home/dev/build/debug && \
+  rm -rf * && \
+  rm -rf /home/dev/external/gtest/src/googletest-build/* && \
+  cmake ../.. && \
+  make googletest && \
+  make HelloWorld && \
+  make runDummyTest && \
+  ./runDummyTest'

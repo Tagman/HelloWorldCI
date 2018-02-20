@@ -17,5 +17,5 @@ RUN apt update && apt -y upgrade && \
 
 #RUN cd /home/dev/src/build/debug && cmake ../.. && make HelloWorld
 
-
+CMD ["/bin/bash"]
 

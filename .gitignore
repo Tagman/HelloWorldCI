@@ -76,8 +76,10 @@ CTestTestfile.cmake
 !.vscode/launch.json
 !.vscode/extensions.json
 
-build/debug/*/*
-build/release/*/*
-build/*
+build/*/*
+
+!build/release/.blank
+!build/debug/.blank
+
 
 

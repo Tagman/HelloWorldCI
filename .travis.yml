@@ -8,6 +8,7 @@ services:
 compiler: gcc
 
 before_install:
+  - pip install --user cpp-coveralls
   - docker build -t build:latest ./docker/build-env/
 
 install:
@@ -26,3 +27,6 @@ script:
   make HelloWorld && \
   make runDummyTest && \
   ./runDummyTest'
+
+after_success:
+  - - coveralls --root . -E ".*gtest.*" -E ".*CMakeFiles.*" -E "external/*"

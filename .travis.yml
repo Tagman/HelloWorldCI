@@ -16,7 +16,7 @@ install:
 
 script:
 - |
-  docker run --rm --name hellocont -v "$(pwd)":/home/dev/ \
+  docker run --name hellocont -v "$(pwd)":/home/dev/ \
   helloworldimg:latest  /bin/bash -c  \
   'cd /home/dev/build/debug && \
   rm -rf * && \
@@ -29,4 +29,6 @@ script:
   ./runDummyTest'
 
 after_success:
-  - - coveralls --root . -E ".*gtest.*" -E ".*CMakeFiles.*" -E "external/*"
+  - pwd
+  - ls
+  - coveralls --verbose --root . 

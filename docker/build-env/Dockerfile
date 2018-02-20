@@ -1,16 +1,14 @@
 FROM debian:stretch
 
-RUN apt update
-RUN apt -y upgrade
-RUN apt -y install build-essential
+RUN apt update && apt -y upgrade && \
+    apt -y install build-essential && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 RUN mkdir -p /home/tools/
 ADD ./cmake-3.9.6.tar.gz /home/tools/
 WORKDIR /home/tools/cmake-3.9.6
-RUN ./bootstrap
-RUN make
-RUN make install
+RUN ./bootstrap && make && make install
 
 WORKDIR /home/
 

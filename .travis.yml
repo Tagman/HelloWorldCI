@@ -14,4 +14,7 @@ install:
   - docker build -t helloworldimg:latest .
 
 script:
-  - docker run helloworldimg:latest /home/dev/src/build/HelloWorld
+- |
+  docker run --name hellocont -v "$(pwd)":/home/dev/ \
+  helloworldimg:latest \
+  'cd ./build/debug && cmake ../.. && make HelloWorld && make runDummyTest && ./runDummyTest'

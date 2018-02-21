@@ -22,7 +22,7 @@ script:
   rm -rf * && \
   rm -rf /home/dev/external/gtest/src/ && \
   rm -rf /home/dev/external/gtest/tmp/ && \
-  cmake -DCMAKE_BUILD_TYPE=Debug ../.. && \
+  cmake -DCMAKE_BUILD_TYPE=Debug -DCOVERAGE=ON ../.. && \
   make googletest && \
   make HelloWorld && \
   make runDummyTest && \

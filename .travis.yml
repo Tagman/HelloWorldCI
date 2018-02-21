@@ -41,8 +41,9 @@ script:
   ./runDummyTest'
 
 after_success:
-  - ls -al build/debug/CMakeFiles/HelloWorld.dir/src/
-  - ls -al external/gtest/
-  - ls -al src/
+  
+
   - sudo chown -fR $USER:$GROUPS /home/travis/build/Tagman/HelloWorldCI/ 
+  - ls -al build/debug/CMakeFiles/HelloWorld.dir/src/
+  - ls -al /home/dev/src/
   - coveralls --verbose --root . 

@@ -8,6 +8,14 @@ services:
 compiler: gcc
 
 before_install:
+  # C++14
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+    # C++14
+  - sudo apt-get install -qq g++-6
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
+  
   - pip install --user cpp-coveralls
   - docker build -t build:latest ./docker/build-env/
   - gcc --version

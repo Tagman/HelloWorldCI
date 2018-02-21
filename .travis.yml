@@ -15,16 +15,18 @@ before_install:
     # C++14
   - sudo apt-get install -qq g++-6
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
-  
+  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-6 90
+
   - pip install --user cpp-coveralls
   - docker build -t build:latest ./docker/build-env/
   - gcc --version
-  - gcov --version
+  
 
 install:
   - docker build -t helloworldimg:latest .
 
 script:
+  - gcov --version
 - |
   docker run --name hellocont -v "$(pwd)":/home/dev/ \
   helloworldimg:latest  /bin/bash -c  \

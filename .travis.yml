@@ -28,12 +28,12 @@ install:
 
 script:
 - |
-  docker run --name hellocont -v "$(pwd)":/home/dev/ \
+  docker run --name hellocont -v "$(pwd)":"$(pwd)" \
   helloworldimg:latest  /bin/bash -c  \
-  'cd /home/dev/build/debug && \
+  'cd /home/travis/build/Tagman/HelloWorldCI/build/debug && \
   rm -rf * && \
-  rm -rf /home/dev/external/gtest/src/ && \
-  rm -rf /home/dev/external/gtest/tmp/ && \
+  rm -rf ../../external/gtest/src/ && \
+  rm -rf ../../external/gtest/tmp/ && \
   cmake -DCMAKE_BUILD_TYPE=Debug -DCOVERAGE=ON ../.. && \
   make googletest && \
   make HelloWorld && \

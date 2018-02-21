@@ -10,6 +10,8 @@ compiler: gcc
 before_install:
   - pip install --user cpp-coveralls
   - docker build -t build:latest ./docker/build-env/
+  - gcc --version
+  - gcov --version
 
 install:
   - docker build -t helloworldimg:latest .
@@ -30,5 +32,4 @@ script:
 
 after_success:
   - pwd
-  - ls
   - coveralls --verbose --root . 

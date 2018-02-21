@@ -41,5 +41,7 @@ script:
   ./runDummyTest'
 
 after_success:
-  - pwd
+  - ls -al build/debug/CMakeFiles/HelloWorld.dir/src/
+  - ls -al external/gtest/
+  - ls -al src/ 
   - coveralls --verbose --root . 

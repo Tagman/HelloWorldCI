@@ -44,4 +44,4 @@ after_success:
   
 
   - sudo chown -fR $USER:$GROUPS /home/travis/build/Tagman/HelloWorldCI/ 
-  - coveralls --verbose --root . -E "external/*" -E "build/*"
+  - coveralls --verbose --root . -e "./external/" -e "./build/"
